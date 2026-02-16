@@ -1,0 +1,64 @@
+---
+title: "Standalone courses"
+description: "Sell or offer a course without enrollment: visibility, pricing, public page, and purchases"
+---
+
+**Standalone courses** are courses that students can purchase (or get for free) without enrolling in a cohort. You create and build the course the same way; then you enable standalone sale and set a price and visibility. Students can find the course on a public page, purchase it, and access it from their dashboard like a course from an enrollment.
+
+## Enabling standalone for a course
+
+1. Open the [Courses](https://www.firstrespondershub.com/program-dashboard/courses) list and select the course.
+2. Open **Edit Course Settings** (or the course management / settings view).
+3. Enable **Standalone purchasable** (or “Sell as standalone,” “Available for standalone purchase,” etc.).
+4. Set:
+   - **Price** — Amount in dollars (e.g. 50.00). Set to **0** for a free standalone course.
+   - **Visibility** — Who can see the course and purchase it:
+     - **Public** — Listed and purchasable by anyone (e.g. on your organization’s public pages and the direct course link).
+     - **Private** — Not listed publicly; only people with the direct link (and who are allowed to purchase) can buy.
+     - **Coming soon** — Shown as “coming soon”; purchase is disabled until you change visibility.
+
+Save the course. The course can still be assigned to [program offerings](/courses/assigning-to-offerings); enrolled students get it via the offering, and others can get it via standalone purchase.
+
+## Public course page
+
+When a course is standalone and visible (public or private with link), it has a **public course page**. The URL is typically:
+
+- `https://www.firstrespondershub.com/courses/[courseId]`
+
+On that page, visitors can see:
+
+- Course title and description
+- Curriculum (modules and lesson titles; no full content until they have access)
+- Price (or “Free”)
+- A **Purchase** or **Get access** button
+
+If the course is **private**, the same page may be reachable only via direct link and might still show curriculum and price so the visitor can purchase. **Coming soon** shows the course but disables purchase.
+
+## Purchase flow
+
+- **Paid course** — Student clicks purchase, enters payment, and gets immediate access once payment succeeds. They see the course in their student dashboard and can complete it like any other course.
+- **Free course** — Student clicks the free/claim button and confirms; they get access without payment.
+
+After purchase (or free claim), the student’s access is tied to their account. They can open the course from their dashboard and use the same lesson viewer and progress tracking as for enrollment-based courses.
+
+## Where students see purchased courses
+
+- **Student dashboard** — Purchased courses appear in the student’s course list (e.g. “Purchased” or “My courses”) alongside courses they have from enrollments.
+- **Progress and completion** — Completion and progress are tracked the same way as for enrollment courses. Refunds and access are handled per your [refund](/payment-settings/refunds) and platform policies; when a purchase is refunded, access to that course is typically removed.
+
+## Refunds and access
+
+If you issue a **refund** for a standalone course purchase, the student’s access to that course is removed once the refund is processed. They keep access to courses they still have from enrollments or other purchases.
+
+Refund handling is covered in [Refunds](/payment-settings/refunds). Standalone course refunds use the same payment system; you process them from your transactions page or the student’s profile.
+
+## Summary
+
+| Action | Where |
+|--------|--------|
+| Turn standalone on/off, set price and visibility | Course settings (Edit Course Settings) |
+| Public course page | `/courses/[courseId]` (link in settings or “Copy link”) |
+| Student access after purchase | Student dashboard → Courses |
+| Refund a standalone purchase | From your transactions page or the student’s profile |
+
+A course can be both assigned to offerings (for enrolled students) and available for standalone purchase (for everyone else). Build the course once; use both assignment and standalone as needed.

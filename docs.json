@@ -58,6 +58,19 @@
                   "enrollment/program-offerings-settings",
                   "enrollment/email-notifications"
                 ]
+              },
+              {
+                "group": "Courses",
+                "expanded": false,
+                "pages": [
+                  "courses/index",
+                  "courses/creating-and-managing",
+                  "courses/structure-modules-lessons",
+                  "courses/content-and-media",
+                  "courses/assigning-to-offerings",
+                  "courses/sessions-and-lessons",
+                  "courses/standalone-courses"
+                ]
               }
             ]
           }
