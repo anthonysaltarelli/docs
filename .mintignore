@@ -5,3 +5,7 @@
 # Draft content
 drafts/
 *.draft.mdx
+
+# Agent/project instructions (not docs pages)
+AGENTS.md
+docs/AGENTS.md
