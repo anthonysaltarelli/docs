@@ -8,7 +8,9 @@
     "dark": "#1D3557"
   },
   "favicon": "/favicon.svg",
-  "icons": { "library": "lucide" },
+  "icons": {
+    "library": "lucide"
+  },
   "navigation": {
     "tabs": [
       {
@@ -16,14 +18,18 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": ["index", "guides/introduction", "guides/setup-overview"]
+            "pages": [
+              "index",
+              "guides/introduction",
+              "guides/setup-overview"
+            ]
           },
           {
             "group": "Documentation",
             "pages": [
               {
                 "group": "Payment Settings",
-                "expanded": true,
+                "expanded": false,
                 "pages": [
                   "payment-settings/index",
                   "payment-settings/stripe-connect",
@@ -31,6 +37,26 @@
                   "payment-settings/invoices-and-balances",
                   "payment-settings/coupons",
                   "payment-settings/refunds"
+                ]
+              },
+              {
+                "group": "Enrollment",
+                "expanded": false,
+                "pages": [
+                  "enrollment/index",
+                  "enrollment/agreements",
+                  {
+                    "group": "Applications",
+                    "expanded": false,
+                    "pages": [
+                      "enrollment/applications",
+                      "enrollment/applications-sections-fields",
+                      "enrollment/applications-templates",
+                      "enrollment/applications-profile-mapping"
+                    ]
+                  },
+                  "enrollment/program-offerings-settings",
+                  "enrollment/email-notifications"
                 ]
               }
             ]
@@ -51,6 +77,15 @@
     }
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"]
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   }
 }

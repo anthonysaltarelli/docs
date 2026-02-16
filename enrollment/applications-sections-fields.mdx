@@ -1,0 +1,79 @@
+---
+title: "Sections and fields"
+description: "How application form sections and fields work: required rules, field types, validation, and options"
+---
+
+Application forms are built from **sections** (groups of questions) and **fields** (individual questions). Each section has a title, optional description, and a “required” setting. Each field has a type (e.g. text, email, select), optional help text, required/optional behavior, and for some types, options or validation rules.
+
+## Where to configure
+
+When [editing an application form](https://www.firstrespondershub.com/program-dashboard/applications), use **Form Sections** to add sections (from templates or custom), then add or edit fields inside each section. Sections and fields can be reordered by dragging.
+
+## Sections
+
+- **Section title** — Shown to the applicant (e.g. “Student Information”, “Mailing Address”).
+- **Section description** — Optional text below the title (e.g. “Please provide your current contact details.”).
+- **Required section** — When turned **on**, every field in that section is required. When **off**, you can mark each field as required or optional individually.
+- **Order** — Sections are shown in the order you set (drag to reorder).
+
+You can add sections by choosing a [section template](/enrollment/applications-templates) (e.g. Student Information, Mailing Address) or a **Custom** section and then adding your own fields.
+
+## Required: section vs field
+
+- If **Section** is required: all fields in that section are required. The “Required field” switch on each field is ignored (and disabled in the editor).
+- If **Section** is not required: each field can be set to required or optional via the “Required field” switch.
+
+Use a required section when the whole block must be completed (e.g. “Student Information”). Use a non-required section when only some questions are mandatory.
+
+## Field types
+
+Each field has a **field type** that controls how the applicant enters data and how it is validated and stored.
+
+| Type | Description | Typical use |
+|------|-------------|-------------|
+| **Text** | Single-line text. Optional placeholder. | Short answers (name, certification number). |
+| **Email** | Email input with format validation. | Email address. |
+| **Phone** | Phone input; stored as digits. | Phone number. |
+| **Date** | Date picker. | Date of birth, certification date. |
+| **Number** | Numeric input. | Age, years of experience. |
+| **Textarea** | Multi-line text. Optional row count. | Comments, longer responses. |
+| **Select** | Dropdown; one option. | State, shirt size, single choice. |
+| **Multi-select** | Multiple options from a list. | “Select all that apply.” |
+| **Radio** | Single choice from radio buttons. | Yes/No, one of several options. |
+| **Checkbox** | Single checkbox (e.g. “I agree”). | Consent, one-off yes/no. |
+| **Address** | Full address: line 1, line 2, city, state, ZIP. | Mailing or billing address. |
+| **Image upload** | Image file(s). Optional “allow multiple”; size limit 5MB per file. Accepted: JPEG, PNG, GIF, WebP, HEIC, HEIF, AVIF. | Profile photo, ID photo. |
+| **File upload** | Document file(s). Optional “allow multiple”; size limit 8MB per file. Accepted: PDF, DOC, DOCX, XLS, XLSX, TXT, CSV. | Resumé, certificate. |
+
+For **Select**, **Radio**, and **Multi-select** you define the **options** (one per line in the editor). At least two options are required. The applicant sees these in the order you enter them.
+
+## Field settings (per field)
+
+- **Field label** — The question or prompt (e.g. “First Name”, “Date of Birth”).
+- **Help text (optional)** — Shown below the label to clarify the question.
+- **Required field** — Whether the applicant must fill this field (see [Required: section vs field](#required-section-vs-field) above).
+- **Field type** — One of the types in the table above.
+- **Options** — For select/radio/multiselect: one option per line.
+- **Auto-fill from User Profile** — If set, the field is [mapped to the student profile](/enrollment/applications-profile-mapping): it can be pre-filled from the profile and is updated on submit when applicable.
+
+For **Image** and **File upload** you can also set:
+
+- **Allow multiple files** — Whether the applicant can upload more than one file.
+- **Maximum number of files** — When multiple is allowed, between 2 and 10.
+
+## Validation
+
+- **Email** and **Phone** — Validated for format; phone is normalized to digits for storage.
+- **Address** — Address fields are validated as appropriate (e.g. state as a code, ZIP format).
+- **Select / Radio / Multi-select** — Only the options you define are accepted.
+- **Number** — Only numeric input is accepted.
+- **Date** — Only valid dates.
+
+For **Text** or **Textarea** you can use **validation rules** (e.g. regex pattern and error message) if your form editor exposes them. Example: ZIP code pattern `^[0-9]{5}(-[0-9]{4})?$` with a “Please enter a valid ZIP code” message. Validation rules are stored in the field configuration and applied when the applicant submits.
+
+## Summary
+
+- Build forms from **sections**; each section has a title, optional description, and required on/off.
+- **Required section** = all fields in that section required; otherwise set **Required field** per field.
+- Use the right **field type** (text, email, phone, date, number, textarea, select, multiselect, radio, checkbox, address, image, file) and configure **options** for select/radio/multiselect.
+- Use **Auto-fill from User Profile** so a field syncs to the [student profile](/enrollment/applications-profile-mapping) and is pre-filled/updated on submit where applicable.

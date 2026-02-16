@@ -1,0 +1,51 @@
+---
+title: "Profile field mapping"
+description: "Which application fields sync to the student profile and how they are updated on submit"
+---
+
+Some application form fields can be **mapped** to the student’s profile. When an applicant submits the form, the values they enter in those fields are used to update their profile (the **users** record). That keeps the student’s name, contact info, address, and profile picture in one place and lets you use the same data across the platform (e.g. student dashboard, program dashboard, emails).
+
+## Where to set this
+
+When [editing an application form](https://www.firstrespondershub.com/program-dashboard/applications), open a section and edit a field. In the field editor, find **Auto-fill from User Profile**. The dropdown lists the profile fields that are valid for that field type. Choose one to map the field to the student profile, or **None** so the value is only stored in the submission.
+
+## Mapped profile fields
+
+The following profile mappings are supported. Not every field type is suitable for every mapping (e.g. “Profile Picture” only applies to **Image upload** fields).
+
+| Mapping | Profile field | Typical form field type | What happens on submit |
+|--------|----------------|--------------------------|-------------------------|
+| **First Name** | `first_name` | Text | Value is saved to the user’s first name. |
+| **Last Name** | `last_name` | Text | Value is saved to the user’s last name. |
+| **Email** | `email` | Email | Value is saved to the user’s email. |
+| **Phone** | `phone` | Phone | Value is normalized to digits and saved to the user’s phone. |
+| **Address Line 1** | `address_line1` | Text (or address) | Value is saved to the user’s address line 1. |
+| **Address Line 2** | `address_line2` | Text (or address) | Value is saved to the user’s address line 2. |
+| **City** | `city` | Text (or address) | Value is saved to the user’s city. |
+| **State** | `state_code` | Text or Select (e.g. state codes) | Value is saved to the user’s state code. |
+| **ZIP Code** | `zip_code` | Text (or address) | Value is saved to the user’s ZIP code. |
+| **Profile Picture** | `profile_picture_url` | **Image upload** only | The uploaded image is copied to the student’s profile photo storage and the profile picture URL is updated. |
+
+If you do **not** set a mapping (None), the value is still stored in the application submission but is **not** written to the user profile.
+
+## Pre-fill from profile
+
+When a field has a profile mapping, the application form can **pre-fill** that field from the student’s current profile (if they are logged in and the profile already has data). So returning applicants may see name, email, phone, or address already filled in. They can change the values; on submit, the profile is updated with whatever they submitted.
+
+## Profile picture (image upload)
+
+- Only **Image upload** fields can use the **Profile Picture** mapping.
+- On submit, the image file is copied from the application uploads storage to the **student profile photos** storage. The user’s `profile_picture_url` is then set to that new image.
+- If the applicant uploads multiple images, the first one is used as the profile picture.
+- If the copy or update fails (e.g. storage error), the application submission still succeeds; the profile picture is simply not updated.
+
+## When updates happen
+
+Profile updates from application submissions happen **when the applicant submits the form** (e.g. after clicking Submit on the application page, or when completing the form during or after enrollment). The submission is saved first; then any fields with profile mappings are applied to the **users** table for that user. The enrollment flow does not change: approval, payment, and post-enrollment steps work the same whether or not you use profile mapping.
+
+## Summary
+
+- Use **Auto-fill from User Profile** on a field to map it to a profile field (first name, last name, email, phone, address fields, or profile picture).
+- Mapped fields can be pre-filled from the profile and are updated on submit.
+- **Profile Picture** is only for Image upload fields; the uploaded image is copied to profile photo storage and the profile picture URL is set.
+- Unmapped fields are stored only in the submission, not on the profile.

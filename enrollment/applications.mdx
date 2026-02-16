@@ -1,0 +1,75 @@
+---
+title: "Overview"
+description: "Create application forms, manage submissions, and set when applications are required (before, during, or after enrollment)"
+---
+
+Application forms let you collect structured information from students (e.g. prerequisites, experience, or program-specific questions). You create forms once, then assign one form per program offering and choose when students complete it: before checkout, during enrollment, or after payment.
+
+## Where to find this
+
+Go to [**Program Dashboard → Applications**](https://www.firstrespondershub.com/program-dashboard/applications). Here you create and edit forms and view or review submissions.
+
+## More detail on building forms
+
+| Topic | What it covers |
+|-------|----------------|
+| [Sections and fields](/enrollment/applications-sections-fields) | How sections work, required vs optional, all field types (text, email, phone, date, select, file, image, address, etc.), validation, and options for select/radio/multiselect |
+| [Section templates](/enrollment/applications-templates) | Pre-built section templates (Student Information, Mailing Address, Screening Questions, Additional Information, Custom) and when to use them |
+| [Profile field mapping](/enrollment/applications-profile-mapping) | Which application fields can sync to the student’s profile (name, email, phone, address, profile picture) and how that works on submit |
+
+## Creating an application form
+
+1. On the Applications page, click **Create New Application**.
+2. Set:
+   - **Form name** — Internal label for your team.
+   - **Form title** — Title applicants see.
+   - **Form description** — Optional; shown to applicants.
+   - **Allow multiple submissions** — Whether the same person can submit more than once (e.g. for different cohorts).
+3. Build the form using the editor: add sections and fields (text, dropdowns, checkboxes, etc.) as needed.
+4. Save. The form gets a **public slug** used in the application URL (e.g. for sharing or embedding).
+
+You can edit an existing form at any time. Changes apply to future submissions; existing submission data is unchanged.
+
+## Managing submissions
+
+- **Submissions list:** On the Applications page you see submissions across forms. Use filters to narrow by application form, cohort, or status (e.g. submitted, approved, rejected).
+- **Per-form view:** Open a form, then go to its **Submissions** tab to see only that form’s submissions.
+- **Review:** Open a submission to view answers, then **Approve** or **Reject**. You can add review notes. Rejected applicants can be given a reason and your organization’s contact info.
+- **Submission history:** You can view a student’s submission history (e.g. multiple submissions for different cohorts) to see past decisions and notes.
+
+Approved submissions are linked to the student and cohort. For forms set to **Needs approval**, the student can complete checkout only after approval.
+
+## One application per offering
+
+Each program offering can have **only one** application form assigned. If you need different questions per cohort, you can use multiple forms and assign the right form to each offering.
+
+## Assigning an application to a program offering
+
+1. Go to [**Program Dashboard → Program Offerings**](https://www.firstrespondershub.com/program-dashboard/program-offerings).
+2. Open the program offering.
+3. Open the **Settings** tab.
+4. In the left sidebar, select **Required Applications**.
+5. Check the application form you want for this offering.
+6. Choose **Application timing** (see below).
+7. Click **Update Program Offering** to save.
+
+To change or remove the application, edit the offering again and update the Required Applications section.
+
+## Application timing
+
+When an application is assigned to an offering, you choose **when** the student completes it:
+
+| Timing | Label in UI | What it does |
+|--------|-------------|--------------|
+| **Needs approval** | Needs Approval | Student submits the application first. You review and approve or reject. The student can complete payment only after approval. |
+| **As part of enrollment** | As part of enrollment | The application is filled out during the enrollment flow (e.g. after agreements, before or with payment). No separate approval step required to proceed. |
+| **Post-enrollment** | Post-Enrollment | Student completes the application **after** payment. They can do it from the student dashboard. |
+
+Choose the option that matches your process (e.g. screen applicants before payment vs. collect info after they’re enrolled).
+
+## Summary
+
+- Create and edit forms under **Applications**; build sections and fields in the form editor.
+- View and filter submissions; approve or reject with optional notes.
+- Assign **one** application per program offering in the offering’s **Required Applications** section.
+- Set **application timing** to control whether students must be approved before checkout, fill the form during enrollment, or complete it after enrollment.
