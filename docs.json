@@ -60,6 +60,21 @@
                 ]
               },
               {
+                "group": "Leads & Information Requests",
+                "expanded": false,
+                "pages": [
+                  "leads/index",
+                  "leads/where-leads-come-from",
+                  "leads/viewing-and-filtering-leads",
+                  "leads/lead-details-and-status",
+                  "leads/notes-and-activity",
+                  "leads/waitlists",
+                  "leads/cart-abandonment-emails",
+                  "leads/pipeline-metrics",
+                  "leads/automatic-updates"
+                ]
+              },
+              {
                 "group": "Courses",
                 "expanded": false,
                 "pages": [
