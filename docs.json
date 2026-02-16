@@ -8,14 +8,32 @@
     "dark": "#1D3557"
   },
   "favicon": "/favicon.svg",
+  "icons": { "library": "lucide" },
   "navigation": {
     "tabs": [
       {
         "tab": "Guides",
         "groups": [
           {
-            "group": "Introduction",
-            "pages": ["index", "guides/introduction"]
+            "group": "Getting Started",
+            "pages": ["index", "guides/introduction", "guides/setup-overview"]
+          },
+          {
+            "group": "Documentation",
+            "pages": [
+              {
+                "group": "Payment Settings",
+                "expanded": true,
+                "pages": [
+                  "payment-settings/index",
+                  "payment-settings/stripe-connect",
+                  "payment-settings/payment-configurations",
+                  "payment-settings/invoices-and-balances",
+                  "payment-settings/coupons",
+                  "payment-settings/refunds"
+                ]
+              }
+            ]
           }
         ]
       }

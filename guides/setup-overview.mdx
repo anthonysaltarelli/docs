@@ -1,0 +1,90 @@
+---
+title: "Setup Overview"
+description: "Step-by-step guide to configuring your organization, instructors, offerings, cohorts, and payments so you can accept enrollments."
+---
+
+This guide walks through setting up your organization on First Responders Hub. Follow the steps in order: configure your organization and team, create program offerings and cohorts, connect payments (if you charge tuition), then open cohorts so students can enroll.
+
+For definitions of organizations, locations, [program offerings](/guides/introduction#program-offering), [cohorts](/guides/introduction#cohort), and [cohort lifecycle](/guides/introduction#cohort-lifecycle), see [Key Concepts](/guides/introduction).
+
+## 1. Set up your organization (info, locations, FAQs)
+
+**Where:** [Organization Profile](https://firstrespondershub.com/program-dashboard/settings/organization-information).
+
+- **Basic Information** — Enter your organization name, type (e.g. Community College, Fire Department), website, phone, email, and description. Set your **public slug** (used in your public URLs). Use **Save** to apply; you can copy your public organization URL from this section.
+- **Locations** — Add, edit, or remove locations (name, address, timezone). Locations are used when scheduling sessions and when defining program offerings. You need at least one location for in-person or hybrid programs.
+- **FAQs** — Add and reorder organization-level FAQs. These can be shown on your public pages.
+- **Program Display** — Optional settings for how your programs are displayed to the public.
+
+Complete Basic Information and at least one Location before creating program offerings that use them.
+
+## 2. Add and invite instructors (profiles and headshots)
+
+**Where:** [Users](https://firstrespondershub.com/program-dashboard/settings/organization-users).
+
+- **Instructor profiles** — Create a profile for each instructor: email, display name, title, and optional description. You can add an optional **headshot** (upload and crop). Profiles can exist before the person has an account; they are linked to a user once the invite is accepted.
+- **Invites** — Send an organization invite with the **instructor** role. You can link the invite to an existing instructor profile so the invitee’s name, title, description, and photo appear after they accept. Only program owners can invite users.
+- **Cohort assignment** — When [creating or editing a cohort](#4-create-cohorts), assign instructors to that cohort. Assigned instructors appear on the public cohort page. If you have no instructor profiles yet, the UI will direct you to add them under **Settings → Users** first.
+
+## 3. Create program offerings
+
+**Where:** [Program Offerings](https://firstrespondershub.com/program-dashboard/program-offerings).
+
+- **Create** — Use **Create program offering**. Choose:
+  - **Program type** — Program (multi-session) or single-day Event.
+  - **Template** — e.g. EMT, Paramedic (platform-defined; contact support if you need another).
+  - **Primary location** (optional for virtual-only).
+  - **Program name** and **description**.
+  - **Modality** — In-person, virtual, or hybrid.
+  - **Schedule types** — e.g. part-time, evening, weekend.
+  - **Tuition amount** (0 for free offerings).
+  - **Status** — e.g. Active.
+
+- **Payment configuration** — For paid offerings, set:
+  - Whether to allow **full payment**, **deposit**, or **no payment** (free).
+  - **Deposit amount** and when the **balance is due** (e.g. days before start or end).
+  - **Currency** (e.g. USD).
+
+After creation, offerings appear in the list. You can edit each offering (payment config, application forms, enrollment agreements) from the program offerings area or the offering’s detail page.
+
+## 4. Create cohorts
+
+**Where:** [Cohorts](https://firstrespondershub.com/program-dashboard/cohorts). To create a new cohort: [Create cohort](https://firstrespondershub.com/program-dashboard/cohorts/create).
+
+- **Create flow** — Select a **program offering**, then set:
+  - **Cohort name** (e.g. “Fall 2026”). Students see it as “EMT Training: Fall 2026” (program name + cohort name).
+  - **Start** and **end dates**, **enrollment deadline**, and **capacity**.
+  - **Recurrence/schedule** — e.g. weekly, specific days and times.
+  - **Location** for sessions (if applicable).
+  - **Instructors** — Assign one or more instructor profiles to this cohort.
+
+- **Save as draft vs Publish** — Saving as **draft** keeps the cohort in [lifecycle](/guides/introduction#cohort-lifecycle) **Planning** (not visible for enrollment). **Publish** sets the lifecycle to **Open** so it can accept enrollments (see section 6).
+
+After creation, open the cohort from the Cohorts list. On the cohort detail page, **Overview** tab, you can edit name, dates, capacity, and **lifecycle state** (including switching to Open when ready).
+
+## 5. Connect Stripe Connect and manage payment settings
+
+**Where:** [Payment Settings](https://firstrespondershub.com/program-dashboard/settings/payments) (under Student Billing in the sidebar). Only **program owners** can manage payment accounts.
+
+- **Stripe Connect** — Create or connect a Stripe account. The platform creates a connected account and sends you to Stripe’s onboarding flow. Complete business and banking details. When you return, the account status moves from **pending** → **onboarding** → **active** once Stripe has enabled charges and payouts.
+- **Accepting payments** — After Stripe is fully onboarded, turn on the **Accept payments** toggle for your organization. This enables paid enrollments. **Free offerings** (tuition $0) do not require Stripe or this toggle.
+- **Plan limits** — Payment processing may be gated by your subscription plan; if the option is unavailable, check your plan or contact support.
+
+## 6. Open cohorts for enrollment
+
+To allow students to enroll in a cohort:
+
+- **Lifecycle** — The cohort must be **Open**. Cohorts start in **Planning**; you change this when you’re ready to accept enrollments.
+- **Where to set it** — [Cohorts](https://firstrespondershub.com/program-dashboard/cohorts) → select a cohort → **Overview** tab. Edit the cohort and set **Lifecycle state** to **Open**. (If you chose **Publish** when creating the cohort, it is already Open.)
+
+**Requirements for public enrollment:**
+
+- **Cohort** — Lifecycle is **Open** (or **Waitlist open** / **Full** as applicable).
+- **Free offerings** — Your subscription must allow student enrollments.
+- **Paid offerings** — Your subscription must allow payment processing, **Accept payments** must be on for the organization, and the offering must have tuition greater than zero.
+
+Students use the public enroll URL for your org, program, and cohort (e.g. `…/enroll/[orgSlug]/[programSlug]/[cohortSlug]`). You can share links to your organization and cohort pages from the Program Dashboard.
+
+## Need help?
+
+For support or questions, visit [First Responders Hub Support](https://www.firstrespondershub.com/support).

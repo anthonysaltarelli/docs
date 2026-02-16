@@ -1,0 +1,66 @@
+---
+title: "Coupons (promo codes)"
+description: "Create and manage promo codes for program offerings and courses"
+---
+
+Promo codes (coupons) let you offer a **fixed discount in dollars** on a program offering or a standalone course. Students enter the code at checkout to reduce the amount they pay.
+
+## Where promo codes live
+
+- **Program offerings:** Promo codes can be attached to a **single program offering**. They apply when a student enrolls in a cohort of that offering (enrollment flow).
+- **Courses:** Promo codes can be attached to a **single course**. They apply when a student purchases that course (e.g. standalone course purchase flow).
+
+Each code belongs to **one** offering **or** one course, and to your **organization**. Codes are **unique per organization** (same code string cannot be used twice for different offerings/courses if you enforce uniqueness; the platform typically requires unique code per org).
+
+## Creating a promo code
+
+1. **Offering:** Open the [program offering](https://firstrespondershub.com/program-dashboard/program-offerings) (create or edit) and go to the **Promo codes** (or Coupons) section.  
+   **Course:** Open the course and its promo/coupon section.
+2. Click **Add** (or equivalent).
+3. Set:
+   - **Code:** The text the student will enter (e.g. `EARLYBIRD`, `SAVE50`). The system typically **normalizes** it: trim, uppercase, remove spaces — so `early bird` and `EARLYBIRD` are the same.
+   - **Discount:** Amount off in **dollars** (e.g. 50 = 50 dollars off). Must be positive and leave at least a small amount (e.g. 1.00 dollars) for payment processing when applied to a paid offering/course.
+   - **Active:** Toggle on so the code can be used.
+4. Save.
+
+**Validation:** The discount cannot exceed the price of the offering/course minus the minimum (e.g. 1 dollar). If the offering is 100 dollars, max discount is 99 dollars. You'll get an error if you enter more.
+
+## Managing promo codes
+
+- **List:** In the offering or course, you see all promo codes for that offering or course: code, discount, active, usage count, created/updated.
+- **Edit:** Change discount or active status (and sometimes the code string, if the UI allows). Editing does not affect already-completed enrollments or purchases.
+- **Deactivate:** Turn **Active** off so the code can no longer be used. Existing uses are unchanged.
+- **Delete:** Remove the code. Usually only when it has never been used (or per your policy). Check the UI for delete vs deactivate.
+
+## How validation works (student side)
+
+When a student enters a promo code at checkout:
+
+1. The platform normalizes the code (trim, uppercase, no spaces) and looks up an **active** promo for that **organization** and that **offering** (or **course**).
+2. If found:
+   - **Enrollment:** The **agreed tuition** becomes `tuition − discount`. The amount due at checkout (full or deposit) is recalculated. If the discount is large enough, the student might pay only the deposit or even zero at enrollment; the rest is balance due.
+   - **Course purchase:** The price becomes `course price − discount`; the student pays the discounted amount.
+3. If not found or inactive: “Invalid or inactive code” (or similar). No discount is applied.
+
+Validation is **stateless** at checkout — no “reservation” of the code. Usage is incremented when an enrollment or purchase is completed.
+
+## Usage count
+
+The platform tracks how many times a promo code has been **used** (completed enrollments or course purchases). Use this to see how often a code was redeemed. There is no usage cap; codes can be used any number of times until you deactivate them.
+
+## Best practices
+
+- **Code format:** Use short, clear strings (e.g. `FALL2025`, `FIRST50`). Avoid spaces; the system will normalize.
+- **Discount size:** Ensure the remaining amount after discount is at least the minimum required for payment (e.g. 1 dollar). For large discounts, “enrollment without payment” or a zero deposit may be more appropriate.
+- **Scope:** One code per offering or per course. For different discounts per cohort, create multiple codes (e.g. `COHORT-A-50`, `COHORT-B-30`) or one code per offering and change the offering price.
+- **Deactivate instead of delete:** To stop use without losing history, deactivate the code rather than deleting it.
+
+## Summary
+
+| Item | Description |
+|------|-------------|
+| **Scope** | One promo code per program offering or per course; belongs to your organization. |
+| **Discount** | Fixed amount off in dollars; must leave at least 1 dollar for payment. |
+| **Code** | Normalized (trim, uppercase, no spaces); unique per org in practice. |
+| **Active** | Only active codes can be applied at checkout. |
+| **Usage** | Count of completed enrollments/purchases using the code. |

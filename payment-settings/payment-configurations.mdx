@@ -1,0 +1,78 @@
+---
+title: "Payment configurations"
+description: "Configure payment options per program offering: full payment, deposits, balance due, and free offerings"
+---
+
+Payment configuration is set **per program offering**. It defines how students can pay for a cohort: full payment upfront, a deposit with balance later, or enrollment without payment. You also set when the balance is due (relative to cohort start or end).
+
+## Where to configure
+
+When you [**create** or **edit** a program offering](https://firstrespondershub.com/program-dashboard/program-offerings), use the **Payment Configuration** section. The options appear only when the offering has a **tuition amount greater than zero**. Free offerings (tuition $0) do not show payment options; students enroll without payment.
+
+## Tuition amount
+
+- **Tuition Amount ($):** The total price for the offering in dollars (e.g. `1200.00`). This is the full amount students owe unless a promo code reduces it.
+- If you set tuition to **0** (or 0.00), the offering is treated as **free**: no payment options are shown, and students complete enrollment without payment.
+
+## Payment options (paid offerings)
+
+You can enable any combination that fits your policy (at least one is typical).
+
+### Allow full payment upfront
+
+- **Checked:** Students can pay the full tuition (or discounted amount after a promo code) in one payment at enrollment.
+- **Unchecked:** Students cannot pay in full at enrollment; they must use deposit and/or “no payment” if you allow those.
+
+### Allow deposit payment
+
+- **Checked:** Students can pay a **deposit** at enrollment. The rest is **balance due** later, paid via invoice (and payment links).
+- **Deposit Amount ($):** The amount in dollars the student pays at enrollment (e.g. `300.00`). Must be less than or equal to the full tuition (after any discount). Students can pay this amount now and receive an invoice for the remainder.
+
+If both **full payment** and **deposit** are allowed, the student chooses at checkout (e.g. “Pay in full” vs “Pay deposit”).
+
+### Allow enrollment without payment
+
+- **Checked:** Students can enroll without paying at enrollment. The full balance is due later according to the **Invoice due date** rules below.
+- **Unchecked:** Every student must pay something at enrollment (full or deposit).
+
+Use this for internal billing, sponsor-paid enrollments, or when you collect payment outside the platform and record it manually.
+
+## Invoice due date (balance due)
+
+When students have a **balance due** (deposit or “no payment” enrollment), the platform creates (or can create) **invoices** for the remaining amount. The **due date** of those invoices is driven by this configuration.
+
+### Invoice due date reference
+
+- **Days before cohort start date** — Due date is calculated as: cohort **start date** minus X days.
+- **Days before cohort end date** — Due date is calculated as: cohort **end date** minus X days.
+
+### Days before start / end
+
+- **Balance due days before start:** Used when reference is “start.” Example: `7` → balance is due 7 days before the cohort starts.
+- **Balance due days before end:** Used when reference is “end.” Example: `7` → balance is due 7 days before the cohort ends.
+
+If the cohort has no end date, the platform falls back to the **start** date for due-date calculation so you still get a valid due date.
+
+## Currency
+
+Payment configuration includes a **currency** field (e.g. `usd`). It is used for invoices and display; the platform typically uses the same currency for the connected Stripe account.
+
+## Summary table
+
+| Option | Effect |
+|-------|--------|
+| **Tuition = 0** | Free offering; no payment options; students enroll without payment. |
+| **Allow full payment** | Student can pay full (or discounted) amount at enrollment. |
+| **Allow deposit** | Student can pay a set deposit at enrollment; rest is balance due. |
+| **Allow no payment** | Student can enroll with $0 at enrollment; full amount is balance due. |
+| **Due reference: start** | Invoice due date = cohort start date − X days. |
+| **Due reference: end** | Invoice due date = cohort end date − X days. |
+
+## Examples
+
+- **Full payment only:** Allow full payment; leave deposit and **no payment** unchecked. Everyone pays in full at enrollment.
+- **Deposit + balance:** Allow full payment and deposit; set deposit amount (e.g. 300 dollars). Student chooses **Pay 300 now** or **Pay in full**. Balance due is invoiced with due date e.g. 7 days before start.
+- **Invoice-only (no payment at enrollment):** Allow **enrollment without payment** only (or with deposit). Students enroll and receive an invoice for full amount or remainder; they pay via invoice link or you record manual payment.
+- **Free cohort:** Set tuition to zero. Payment configuration is hidden; enrollment is free.
+
+Configurations are saved with the offering and apply to all cohorts created from that offering until you edit the offering again.

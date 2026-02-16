@@ -1,0 +1,101 @@
+---
+title: "Invoices and balances"
+description: "Creating invoices, payment links, balance due, reminder emails, and manual balance adjustments"
+---
+
+This guide covers how invoices and balances work for enrollments: creating invoices, sending payment links, configuring reminder emails, and adjusting balances manually.
+
+## Concepts
+
+- **Balance due:** For an enrollment, the amount still owed = agreed tuition (or offering tuition) minus payments already made (including refunds). It is shown on the student’s enrollment and in the [program dashboard](https://firstrespondershub.com/program-dashboard).
+- **Invoice:** A bill for a specific amount (e.g. the remaining balance or a portion of it) with a due date. Invoices can be **open**, **partially_paid**, **paid**, **overdue**, or **canceled**.
+- **Payment link:** A unique, time-limited URL the student (or sponsor) uses to pay an invoice. You can send the link by email or copy it.
+
+## Creating invoices
+
+### When invoices are created
+
+- **Balance invoices:** When a student enrolls with a **deposit** or **no payment**, the remaining balance is due later. The platform can create a **balance** invoice for that amount (or you create one manually). Due date comes from the offering’s payment configuration (e.g. X days before cohort start or end).
+- **Manual creation:** From the [program dashboard](https://firstrespondershub.com/program-dashboard), open a student’s enrollment and use **Create invoice** (or equivalent) to create an invoice for a chosen amount and due date. You can create multiple invoices per enrollment as long as the total does not exceed the enrollment’s balance due.
+
+### Create invoice dialog (manual)
+
+When you create an invoice manually you typically set:
+
+- **Amount:** Dollar amount to bill. It cannot exceed the **remaining balance** for that enrollment (total balance due minus any open/partially paid invoice amounts).
+- **Due date:** When the invoice is due.
+- **Payer type:** Student or sponsor (affects who can pay and who gets reminders).
+- **Sponsor (if sponsor-paid):** Select the sponsor if the invoice is for a sponsor to pay.
+
+After creation, you can generate a **payment link** and send it to the student or sponsor.
+
+## Payment links
+
+- **Generation:** When an invoice is created (or from the invoice actions menu), the system can create a **payment link** — a URL that includes a secure token.
+- **Expiration:** Links are valid for a limited time (e.g. 90 days) and may have a max number of uses. You can create a new link if one expires.
+- **Usage:** The payer opens the link, enters payment details, and completes payment. Success is recorded and the invoice and enrollment balance are updated.
+
+Share the link by email or copy-paste. The invoice payment page is hosted by the platform and uses your organization’s connected Stripe account to charge the payer.
+
+## Invoice statuses and balance
+
+- **Open / Partially paid / Overdue:** Invoice still has an amount due. Balance due on the enrollment includes these amounts.
+- **Paid:** Invoice is fully paid; it no longer counts as balance due.
+- **Canceled:** Invoice is void and does not count toward balance.
+
+Balance due is computed as: **agreed tuition − (payments − refunds)**. Outstanding invoices are a *breakdown* of that balance, not an extra amount.
+
+## Invoice reminder settings
+
+In [**Settings → Payments**](https://firstrespondershub.com/program-dashboard/settings/payments), you can configure **Invoice reminder** emails so payers get reminded relative to the invoice due date.
+
+### Reminder types
+
+- **Upcoming:** Sent X **days before** the due date (e.g. 7 days before, 14 days before). You can add multiple (e.g. 14, 7, 3 days before).
+- **On due date:** Sent the **day the invoice is due** (one reminder per invoice).
+- **Past due:** Sent X **days after** the due date (e.g. 3 days after, 7 days after).
+
+You can enable up to **7 reminders** in total (e.g. 3 upcoming + 1 on due date + 3 past due). For each reminder you set the **days** (for upcoming: days before; for past due: days after) and a toggle to enable/disable it.
+
+### Who receives reminders
+
+Reminders are sent to the **billing contact** (if set on the invoice), otherwise to the **sponsor** (for sponsor invoices) or the **student**. The platform resolves the recipient from the invoice and enrollment data.
+
+### Saving reminder settings
+
+After adding or editing reminders, click **Save**. Settings apply to all future reminder runs (e.g. a nightly or scheduled job that evaluates due dates and sends emails per your rules).
+
+## Manual payments and balance adjustments
+
+### Recording a manual payment
+
+If a student or sponsor pays outside the platform (check, wire, etc.), you can record a **manual payment** against the enrollment. This creates a transaction that **decreases** the balance due and can be attached to an invoice so the invoice status updates (e.g. to paid or partially paid). Manual payments do not go through Stripe; they are for record-keeping only.
+
+### Balance adjustment
+
+When you need to change the **total amount owed** (e.g. discount, fee change, or correction):
+
+1. Open the enrollment in the [program dashboard](https://firstrespondershub.com/program-dashboard) and use **Adjust balance** (or the balance adjustment dialog).
+2. Enter the **new balance** (in dollars). The system computes the difference from the current balance and applies it as an adjustment.
+3. Optionally add a **reason** (e.g. “Discount approved” or “Tuition correction”).
+
+**Effect:** The enrollment’s **agreed tuition** (or equivalent) is updated so that the new balance due equals the value you entered. Outstanding invoices may be updated or canceled so they do not exceed the new balance. Existing payment transactions are not changed; only the “amount owed” is corrected.
+
+- **Decreasing balance:** Use when giving a discount or reducing what the student owes.
+- **Increasing balance:** Use when adding a fee or correcting an undercharge (use sparingly and with a clear reason).
+
+Balance adjustments are logged for audit. Only program owners or instructors should perform them.
+
+## Super bills (sponsor billing)
+
+Some workflows support **super bills** — bills sent to sponsors (e.g. employers) for one or more enrollments. Super bills have their own payment links and statuses. Creating and sending super bills is done from the [program dashboard](https://firstrespondershub.com/program-dashboard) (e.g. from a student’s enrollment or a sponsor view). Paying a super bill updates the related enrollment(s) and invoices according to how the super bill is configured.
+
+## Summary
+
+| Topic | Summary |
+|-------|---------|
+| **Creating invoices** | Automatically for balance due after deposit/no-payment enrollment, or manually from the enrollment with amount and due date. |
+| **Payment links** | Generated per invoice; time-limited; share by email or copy. |
+| **Reminders** | Configure in [Settings → Payments](https://firstrespondershub.com/program-dashboard/settings/payments): upcoming, on due date, past due (up to 7 total). |
+| **Manual payment** | Record off-line payments to update balance and invoice status. |
+| **Balance adjustment** | Set a new balance to correct tuition (discount/fee); invoices are updated accordingly. |

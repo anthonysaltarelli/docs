@@ -1,0 +1,84 @@
+---
+title: "Refunds"
+description: "When and how to issue refunds; partial vs full; how they affect balances"
+---
+
+This guide explains how refunds work for enrollment payments: when you can refund, full vs partial, how they’re processed through Stripe, and how they affect student balances and invoices.
+
+## When refunds apply
+
+Refunds in the platform apply to **payments that went through Stripe** (card or other Stripe payment methods). For each such payment we store a **Stripe charge ID** (or payment intent). You can issue a refund for:
+
+- A **single transaction** (one enrollment payment), or
+- The underlying **Stripe charge** (which may be split across multiple transactions in edge cases, e.g. super bills).
+
+**Manual payments** (recorded as “paid outside the platform”) do **not** have a Stripe charge, so they **cannot** be refunded through the platform. To reverse a manual payment you would use a **balance adjustment** (e.g. increase the balance by the same amount) and optionally add a note.
+
+## Who can issue refunds
+
+Only **program owners** and **instructors** can create refunds for enrollments in their organization. Refunds are created from the [program dashboard](https://firstrespondershub.com/program-dashboard) (e.g. from a student’s enrollment or the transactions list) via the **Refund** action.
+
+## Refund flow (overview)
+
+1. You choose a **succeeded** payment transaction that has a Stripe charge (or payment intent we can resolve to a charge).
+2. The system computes the **refundable amount**: original charge amount minus any refunds already made against that charge.
+3. You choose **full** or **partial** refund and, optionally, a **reason**.
+4. The platform creates a **refund in Stripe** (on the platform/connected account that holds the charge). Stripe returns the refund (e.g. `succeeded` or `pending`).
+5. The student's **balance due** goes back up by the refunded amount.
+6. If the payment was applied to an invoice, the refund is tied to that invoice so invoice status and balance due stay consistent.
+
+Refunds are **irreversible** in Stripe. Only issue them when you intend to return money to the payer.
+
+## Full vs partial refund
+
+- **Full refund:** Leave amount blank (or select “Full refund”). The refund amount = refundable amount (entire remaining charge amount). The student’s balance increases by that full amount.
+- **Partial refund:** Enter an amount (in dollars). It must be ≤ refundable amount. The student’s balance increases by that partial amount. You can issue multiple partial refunds until the refundable amount is exhausted.
+
+## Refund reasons
+
+When creating a refund you can optionally set a **reason** (for your records and sometimes for Stripe):
+
+- **Requested by customer**
+- **Duplicate**
+- **Fraudulent**
+- **Other**
+
+This does not change the refundable amount; it’s for reporting and dispute handling.
+
+## Effect on balance and invoices
+
+- **Balance due:** A refund **increases** the student’s balance due by the refunded amount. So if they had paid 500 dollars and you refund 200 dollars, their balance goes from zero back to 200 dollars (assuming no other changes).
+- **Invoices:** If the original payment was against an invoice, the refund is associated with that invoice. Outstanding or future invoices for that enrollment will reflect the higher balance so the student can be billed again if needed.
+
+## Refundable amount rules
+
+- **Refundable amount** = amount originally charged (for that charge) minus any refunds already created for that charge.
+- We do not allow refunding more than the refundable amount. If you need to “refund” more than was paid (e.g. goodwill), that’s a **balance adjustment** (reduce balance) plus possibly sending money outside the platform; the platform does not create a Stripe refund greater than the charge.
+
+## Timing and Stripe status
+
+- **Succeeded:** Stripe has processed the refund; money is returned to the payer. Refunds typically take 5–10 business days to appear (timing depends on their bank or card).
+- **Pending / Failed:** Rare; the UI or webhook will show status. If a refund fails, the student’s balance is not increased; you can retry or contact support.
+
+Webhooks from Stripe keep our transaction status in sync (e.g. when a pending refund succeeds).
+
+## Where to issue a refund
+
+1. Open the **student’s enrollment** in the [program dashboard](https://firstrespondershub.com/program-dashboard) (or go to **Transactions** and find the payment).
+2. Find the **payment transaction** (the one that decreased balance).
+3. Use **Refund** (or “Issue refund”). The refund dialog may fetch the **refundable amount** and show:
+   - Original amount
+   - Already refunded
+   - Refundable amount
+4. Enter amount (or leave blank for full) and optional reason, then confirm. After the refund is created, the list refreshes and the student’s balance reflects the refund.
+
+## Summary
+
+| Topic | Summary |
+|-------|---------|
+| **Eligible payments** | Only Stripe payments (we have a charge ID). Manual payments cannot be refunded via Stripe. |
+| **Full refund** | Refund entire refundable amount; balance increases by that amount. |
+| **Partial refund** | Refund part of the charge; balance increases by that part. Multiple partial refunds allowed up to refundable amount. |
+| **Balance** | Refunds **increase** the student’s balance due. |
+| **Reasons** | Optional: requested_by_customer, duplicate, fraudulent, other. |
+| **Who** | Program owners and instructors for their organization’s enrollments. |

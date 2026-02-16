@@ -1,0 +1,107 @@
+---
+title: "Stripe Connect"
+description: "Set up, verify, and manage your Stripe Connect account for payment collection"
+---
+
+First Responders Hub uses **Stripe Connect** so your organization gets its own connected Stripe account. You receive payouts to your bank account, and you manage disputes and tax reporting in your own Stripe Dashboard. This guide covers setup, verification, and what to expect.
+
+## Overview
+
+- **Standard connected accounts:** Your organization’s account is a full Stripe account. You handle chargebacks and negative balances; the platform does not hold or move your funds beyond routing payments.
+- **Stripe-hosted onboarding:** You complete signup and verification in Stripe’s secure flow. We generate a link from [**Settings → Payments**](https://firstrespondershub.com/program-dashboard/settings/payments) and send you to Stripe to finish.
+- **Requirements:** All plans (Starter, Growth, Scale) can accept payments; only **program owners** can create the account and complete onboarding. Instructors can view status only.
+
+## Setting up your account
+
+### Step 1: Open Payments settings
+
+1. In the Program Dashboard, go to [**Settings → Payments**](https://firstrespondershub.com/program-dashboard/settings/payments).
+2. In the **Set Up Payment Collection** card, click **Set Up Payments**.
+
+### Step 2: Create the connected account
+
+When you click **Set Up Payments**, the platform:
+
+1. Creates a **Stripe Connect Standard account** for your organization (country and business name are set from your organization profile).
+2. Stores the account in our system and generates a one-time **Account Link** from Stripe.
+3. Redirects you to **Stripe’s onboarding** (or shows the link to open it).
+
+You do not need to create an account on stripe.com first; we create the connected account for you.
+
+### Step 3: Complete Stripe onboarding
+
+Stripe’s flow will ask for:
+
+- **Identity:** Name, date of birth, address, and often a government-issued ID. For some accounts, last 4 of SSN or equivalent.
+- **Business information:** Business name, address, phone, and sometimes business registration or tax documents.
+- **Banking:** A bank account where Stripe will send payouts.
+- **Tax:** Tax ID (e.g. EIN in the US) and related details where required.
+- **Terms:** Acceptance of Stripe’s terms of service.
+
+Requirements vary by country, business type, and risk. Stripe may ask for **beneficial owner** or **representative** information in supported regions (e.g. US, Australia, parts of Europe).
+
+- **Refresh URL:** If you leave onboarding before finishing, use **Complete Setup** or **Continue Setup** again from the same page; we generate a new link (links expire after about 24 hours).
+
+## Verification and requirements
+
+### What Stripe checks
+
+Stripe uses the information you submit to verify identity and business. Typical requirement categories you might see in the app or in Stripe:
+
+| Category | Examples |
+|----------|----------|
+| **Identity** | Government-issued ID, date of birth, full address, last 4 of SSN (where applicable) |
+| **Business** | Business name, address, phone, tax ID, business documents |
+| **Banking** | Bank account for payouts, account holder name |
+| **Tax** | Tax ID number, tax forms (region-dependent) |
+| **Other** | Terms of service acceptance |
+
+If something is missing or needs to be updated, Stripe will show **currently_due** or **eventually_due** requirements. The [Payments page](https://firstrespondershub.com/program-dashboard/settings/payments) shows a short summary of what’s left (e.g. “Complete your banking details to start collecting payments”) and, when applicable, grouped requirements (identity, business, banking, tax).
+
+### Status indicators
+
+On [**Settings → Payments**](https://firstrespondershub.com/program-dashboard/settings/payments), your account can show:
+
+- **Not Set Up** — No Stripe account has been created yet.
+- **Setup Incomplete** — Account exists but Stripe still needs information (e.g. `charges_enabled` or `payouts_enabled` is false).
+- **Action Required** — There are requirements in `currently_due`; Stripe needs more info before you can charge or get payouts.
+- **Under Review** — Details are submitted; Stripe is reviewing (e.g. before enabling payouts).
+- **Fully Onboarded** — You can accept charges and receive payouts.
+
+Only when the account is **Fully Onboarded** (details submitted, charges enabled, and in practice payouts enabled) can you turn on **Accept Online Payments** for your organization.
+
+### What to expect after submitting
+
+- **Timing:** Verification can be quick or take a few business days depending on country, business type, and whether Stripe needs more documents.
+- **Payouts:** Stripe may enable payouts after verification. Initial payouts can be delayed (e.g. 7–14 days); after that, payouts follow your Stripe schedule (e.g. rolling).
+- **Restrictions:** If required information is missing or overdue, Stripe may pause charges or payouts until you complete it. You’ll see requirements in the Dashboard and, where we surface them, on the [Payments page](https://firstrespondershub.com/program-dashboard/settings/payments).
+- **Updates:** Keep business and banking details up to date in your [Stripe Dashboard](https://dashboard.stripe.com); Stripe may email you about required updates.
+
+## Enabling payment acceptance
+
+1. Finish Stripe onboarding until the account shows **Fully Onboarded** (and **Refresh** doesn’t show new requirements).
+2. On [**Settings → Payments**](https://firstrespondershub.com/program-dashboard/settings/payments), turn **Accept Online Payments** **On**.
+3. Students can then pay for enrollments (and for other paid flows you’ve configured) according to each offering’s payment configuration.
+
+If you turn the toggle **Off**, online payment for new enrollments is disabled; existing invoices and payment links can still be paid until you change or cancel them.
+
+## Continuing or updating onboarding
+
+- **Complete Setup / Continue Setup:** Use the button in the **Payment Account Status** card on [**Settings → Payments**](https://firstrespondershub.com/program-dashboard/settings/payments). Use this if you left onboarding early or if Stripe has added requirements.
+- **Refresh:** Use **Refresh** to reload status from Stripe (e.g. after you’ve completed steps in the Stripe Dashboard or in an email link).
+- **Stripe Dashboard:** For detailed requirement lists, bank details, payouts, and tax settings, log in to [Stripe Dashboard](https://dashboard.stripe.com) with the connected account (you may get there via a “Manage in Stripe”–style link if we add one, or by signing in to Stripe and selecting the connected account).
+
+## Roles and permissions
+
+- **Program owners:** Can create the Stripe account, start or continue onboarding, see the Stripe account ID, and toggle **Accept Online Payments**.
+- **Instructors:** Can see that a payment account is configured and its high-level status (e.g. Fully Onboarded); they cannot create the account, open onboarding links, or change the acceptance toggle.
+
+## Troubleshooting
+
+- **“Only program owners can create payment accounts”** — You’re signed in as an instructor. Ask a program owner to set up payments.
+- **“Payment processing requires an active plan”** — Restore your subscription or contact support if you expect payment access.
+- **“Please complete your Stripe Connect onboarding before enabling payment acceptance”** — Resolve any **currently_due** requirements in Stripe (use **Complete Setup** and finish the flow, or fix items in the Stripe Dashboard), then refresh and try the toggle again.
+- **Link expired or invalid** — Click **Complete Setup** or **Continue Setup** to generate a new Account Link.
+- **Account under review** — Wait for Stripe to finish review; they may email you. If something is missing, complete it in the Stripe Dashboard or via the link we provide.
+
+For Stripe-specific verification or payout questions, use [Stripe Support](https://support.stripe.com) or the help in your Stripe Dashboard.
