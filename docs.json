@@ -86,6 +86,16 @@
                   "courses/sessions-and-lessons",
                   "courses/standalone-courses"
                 ]
+              },
+              {
+                "group": "Teaching & Instructor Hours",
+                "expanded": false,
+                "pages": [
+                  "teaching-topics-and-instructor-hours/index",
+                  "teaching-topics-and-instructor-hours/teaching-topics",
+                  "teaching-topics-and-instructor-hours/session-segments",
+                  "teaching-topics-and-instructor-hours/instructor-hours-report"
+                ]
               }
             ]
           }
