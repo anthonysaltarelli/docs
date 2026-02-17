@@ -96,6 +96,24 @@
                   "teaching-topics-and-instructor-hours/session-segments",
                   "teaching-topics-and-instructor-hours/instructor-hours-report"
                 ]
+              },
+              {
+                "group": "Cohort Management",
+                "expanded": true,
+                "pages": [
+                  "cohort-management/index",
+                  "cohort-management/overview-and-editing",
+                  "cohort-management/creating-a-cohort",
+                  "cohort-management/recurring-patterns",
+                  "cohort-management/schedule-and-sessions",
+                  "cohort-management/editing-and-cancelling-sessions",
+                  "cohort-management/session-topics-and-segments",
+                  "cohort-management/attendance",
+                  "cohort-management/waitlists",
+                  "cohort-management/students-and-invites",
+                  "cohort-management/outcomes",
+                  "cohort-management/feedback"
+                ]
               }
             ]
           }
