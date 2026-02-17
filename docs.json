@@ -114,6 +114,16 @@
                   "cohort-management/outcomes",
                   "cohort-management/feedback"
                 ]
+              },
+              {
+                "group": "Outcomes",
+                "expanded": true,
+                "pages": [
+                  "outcomes/index",
+                  "outcomes/results-and-certifications",
+                  "outcomes/outcome-types",
+                  "outcomes/recording-in-bulk"
+                ]
               }
             ]
           }
