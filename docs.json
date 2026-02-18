@@ -60,18 +60,21 @@
                 ]
               },
               {
-                "group": "Leads & Information Requests",
+                "group": "Cohort Management",
                 "expanded": false,
                 "pages": [
-                  "leads/index",
-                  "leads/where-leads-come-from",
-                  "leads/viewing-and-filtering-leads",
-                  "leads/lead-details-and-status",
-                  "leads/notes-and-activity",
-                  "leads/waitlists",
-                  "leads/cart-abandonment-emails",
-                  "leads/pipeline-metrics",
-                  "leads/automatic-updates"
+                  "cohort-management/index",
+                  "cohort-management/overview-and-editing",
+                  "cohort-management/creating-a-cohort",
+                  "cohort-management/recurring-patterns",
+                  "cohort-management/schedule-and-sessions",
+                  "cohort-management/editing-and-cancelling-sessions",
+                  "cohort-management/session-topics-and-segments",
+                  "cohort-management/attendance",
+                  "cohort-management/waitlists",
+                  "cohort-management/students-and-invites",
+                  "cohort-management/outcomes",
+                  "cohort-management/feedback","cohort-management/deleting-a-cohort"
                 ]
               },
               {
@@ -98,24 +101,6 @@
                 ]
               },
               {
-                "group": "Cohort Management",
-                "expanded": false,
-                "pages": [
-                  "cohort-management/index",
-                  "cohort-management/overview-and-editing",
-                  "cohort-management/creating-a-cohort",
-                  "cohort-management/recurring-patterns",
-                  "cohort-management/schedule-and-sessions",
-                  "cohort-management/editing-and-cancelling-sessions",
-                  "cohort-management/session-topics-and-segments",
-                  "cohort-management/attendance",
-                  "cohort-management/waitlists",
-                  "cohort-management/students-and-invites",
-                  "cohort-management/outcomes",
-                  "cohort-management/feedback","cohort-management/deleting-a-cohort"
-                ]
-              },
-              {
                 "group": "Outcomes",
                 "expanded": false,
                 "pages": [
@@ -123,6 +108,21 @@
                   "outcomes/results-and-certifications",
                   "outcomes/outcome-types",
                   "outcomes/recording-in-bulk"
+                ]
+              },
+              {
+                "group": "Leads & Information Requests",
+                "expanded": false,
+                "pages": [
+                  "leads/index",
+                  "leads/where-leads-come-from",
+                  "leads/viewing-and-filtering-leads",
+                  "leads/lead-details-and-status",
+                  "leads/notes-and-activity",
+                  "leads/waitlists",
+                  "leads/cart-abandonment-emails",
+                  "leads/pipeline-metrics",
+                  "leads/automatic-updates"
                 ]
               }
             ]
