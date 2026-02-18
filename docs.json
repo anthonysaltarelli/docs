@@ -56,7 +56,7 @@
                     ]
                   },
                   "enrollment/program-offerings-settings",
-                  "enrollment/email-notifications"
+                  "enrollment/email-notifications","enrollment/deleting-or-discontinuing-program-offerings"
                 ]
               },
               {
@@ -99,7 +99,7 @@
               },
               {
                 "group": "Cohort Management",
-                "expanded": true,
+                "expanded": false,
                 "pages": [
                   "cohort-management/index",
                   "cohort-management/overview-and-editing",
@@ -112,12 +112,12 @@
                   "cohort-management/waitlists",
                   "cohort-management/students-and-invites",
                   "cohort-management/outcomes",
-                  "cohort-management/feedback"
+                  "cohort-management/feedback","cohort-management/deleting-a-cohort"
                 ]
               },
               {
                 "group": "Outcomes",
-                "expanded": true,
+                "expanded": false,
                 "pages": [
                   "outcomes/index",
                   "outcomes/results-and-certifications",
