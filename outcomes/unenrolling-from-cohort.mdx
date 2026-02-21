@@ -1,0 +1,77 @@
+---
+title: "Unenrolling a student from a cohort"
+description: "How to withdraw a student from a cohort, where it is recorded, and what happens to the student dashboard, capacity, and reporting."
+---
+
+**Unenrolling** (withdrawing) a student from a cohort records that the student is no longer active in that cohort. You choose a withdrawal reason and date; the system creates a withdrawal outcome record and updates the enrollment status. This page explains how to do it and what the outcomes are.
+
+## When to use it
+
+Use unenrollment when a student is leaving the cohort before completion—for example they withdraw for personal, financial, or academic reasons. This is different from recording **Completed** (student finished the cohort) or other outcomes like exam results.
+
+## How to unenroll a student
+
+### From a student’s profile
+
+1. Go to [**Program Dashboard → Students**](https://www.firstrespondershub.com/program-dashboard/students) and open the student.
+2. Find the enrollment for the cohort you want to withdraw them from.
+3. Click **Unenroll**.
+4. In the dialog, choose a **Reason for withdrawal** (required) and **Withdrawal date** (required).
+5. Click **Confirm unenroll**.
+
+### From a cohort
+
+1. Go to [**Program Dashboard → Cohorts**](https://www.firstrespondershub.com/program-dashboard/cohorts) and open the cohort.
+2. In the student list or **Outcomes** tab, find the student and click **Unenroll**.
+3. In the dialog, choose a **Reason for withdrawal** (required) and **Withdrawal date** (required).
+4. Click **Confirm unenroll**.
+
+### Required information
+
+- **Reason for withdrawal** — One of: Financial, Personal, Academic, Medical, Scheduling, Employment, Relocated, Military, or Other.
+- **Withdrawal date** — The date the withdrawal is effective.
+
+### Alternative: Record Outcome
+
+You can achieve the same result by using **Record Outcome** (on [Results & Certifications](https://www.firstrespondershub.com/program-dashboard/results-and-certifications) or the cohort **Outcomes** tab): choose **Cohort Progression** → **Withdrawn**, then enter the withdrawal reason and date. The dedicated **Unenroll** button is a shortcut that pre-fills the outcome type and subtype.
+
+## Where it’s recorded
+
+When you unenroll a student, two things happen:
+
+1. **A withdrawal outcome record is created** — It appears on [Results & Certifications](/outcomes/results-and-certifications) and on the cohort’s and student’s **Outcomes** tabs. The record stores the outcome type (Cohort Progression), subtype (Withdrawn), withdrawal reason, date, and who recorded it.
+2. **The enrollment’s status is set to Withdrawn** — The enrollment row is updated so `enrollment_status` is **Withdrawn**. All downstream behavior (student dashboard, capacity, reporting) is driven by this status.
+
+### Reversing an unenrollment
+
+Unenrollment can be reversed. The enrollment status is derived from the **latest** cohort progression outcome for that enrollment. If you **edit** the withdrawal outcome (for example change the subtype) or **delete** it (program owners only), the system re-evaluates status from the remaining outcomes. So removing or changing the withdrawal record can effectively put the student back to **Enrolled** or **Completed**, depending on what other cohort progression outcomes exist. To reverse, use **Edit** or **Delete** on the withdrawal record from Results & Certifications or the cohort/student Outcomes tab.
+
+## Outcomes of unenrollment
+
+### Student dashboard
+
+- **Home / My Enrollments** — The enrollment still appears in “My Enrollments” with the label **Withdrawn** and distinct styling (e.g. amber). The student can still see **billing and payment history** for that cohort.
+- **Schedule** — Only active enrollments (Enrolled, Completed, Paid pending application) drive the schedule. A withdrawn student **no longer sees that cohort’s sessions** on their schedule.
+- **Courses** — Course access for cohort-based courses is tied to enrollments with status **Enrolled**. A withdrawn student **no longer has access** to that cohort’s courses via that enrollment.
+
+So after unenrollment: the student sees the enrollment as “Withdrawn” on the home page and can still view billing history, but they do not see that cohort on the schedule or in course access.
+
+### Capacity
+
+Unenrolling a student **frees a spot** in the cohort:
+
+- Only enrollments with status **Enrolled**, **Completed**, or **Paid pending application** count toward the cohort’s effective enrollment count. **Withdrawn** (and Failed, Dropped) do **not** count.
+- When you unenroll, the cohort’s effective enrollment count decreases, **spots remaining** can increase, and the cohort may no longer be **at capacity**. If your cohort lifecycle is driven by capacity, the cohort may open for enrollment again or allow more invites.
+
+### Reporting and visibility
+
+- **Results & Certifications** — Withdrawal records appear like any other outcome (type Cohort Progression, subtype Withdrawn, with reason and date). They are included in filters and in **Export CSV**.
+- **Cohort Outcomes tab** — Withdrawal records appear in the cohort’s outcome list.
+- **Attrition and graduation metrics** — The [Results & Certifications](/outcomes/results-and-certifications) summary cards (e.g. Attrition rate, Still enrolled) use outcome data. Unenrollments feed into attrition and graduation metrics so your reports stay accurate.
+
+## See also
+
+- [Results & Certifications](/outcomes/results-and-certifications) — View, edit, or export outcome records (including withdrawals).
+- [Outcome Types](/outcomes/outcome-types) — How outcome types and subtypes (e.g. Withdrawn) are configured.
+- [Outcomes (from a cohort)](/cohort-management/outcomes) — Recording and viewing outcomes from the cohort tab.
+- [Recording outcomes in bulk](/outcomes/recording-in-bulk) — Record outcomes for many students at once (including bulk withdrawals).
