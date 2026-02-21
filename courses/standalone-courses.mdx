@@ -16,6 +16,7 @@ description: "Sell or offer a course without enrollment: visibility, pricing, pu
      - **Public** — Listed and purchasable by anyone (e.g. on your organization’s public pages and the direct course link).
      - **Private** — Not listed publicly; only people with the direct link (and who are allowed to purchase) can buy.
      - **Coming soon** — Shown as “coming soon”; purchase is disabled until you change visibility.
+   - **Required agreements (optional)** — In the same Edit Course Settings modal, use **Required agreements** to select which published agreements students must accept before completing purchase. If none are selected, no agreement step is shown. See [Agreements](/enrollment/agreements) for creating and publishing agreements.
 
 Save the course. The course can still be assigned to [program offerings](/courses/assigning-to-offerings); enrolled students get it via the offering, and others can get it via standalone purchase.
 
@@ -35,6 +36,8 @@ On that page, visitors can see:
 If the course is **private**, the same page may be reachable only via direct link and might still show curriculum and price so the visitor can purchase. **Coming soon** shows the course but disables purchase.
 
 ## Purchase flow
+
+If the course has **required agreements** assigned in course settings, an **Agreements** step appears in the purchase flow (after sign-in and profile, before payment or free confirmation). The student must accept all required agreements; acceptances are recorded with the purchase.
 
 - **Paid course** — Student clicks purchase, enters payment, and gets immediate access once payment succeeds. They see the course in their student dashboard and can complete it like any other course.
 - **Free course** — Student clicks the free/claim button and confirms; they get access without payment.
@@ -57,6 +60,7 @@ Refund handling is covered in [Refunds](/payment-settings/refunds). Standalone c
 | Action | Where |
 |--------|--------|
 | Turn standalone on/off, set price and visibility | Course settings (Edit Course Settings) |
+| Assign required agreements for purchase | Course settings (Edit Course Settings) → Required agreements |
 | Public course page | `/courses/[courseId]` (link in settings or “Copy link”) |
 | Student access after purchase | Student dashboard → Courses |
 | Refund a standalone purchase | From your transactions page or the student’s profile |
