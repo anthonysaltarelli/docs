@@ -78,6 +78,17 @@
                 ]
               },
               {
+                "group": "Posts",
+                "expanded": false,
+                "pages": [
+                  "posts/index",
+                  "posts/creating-a-post",
+                  "posts/managing-posts",
+                  "posts/student-post-feed",
+                  "posts/email-notifications"
+                ]
+              },
+              {
                 "group": "Courses",
                 "expanded": false,
                 "pages": [
